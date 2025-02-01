@@ -42,7 +42,6 @@ namespace homeWorkBossFigth
                 Console.WriteLine($"\nBoss health lvl = {bossHealthLevel}");
                 Console.WriteLine($"Hero health lvl = {heroHealthLevel}");
                 Console.WriteLine($"Hero mana lvl = {heroManaLevel}");
-
                 Console.WriteLine("\nMake your choice attack hero:");
                 Console.WriteLine($"{CommandMeleeHeroAttack} - take melee attack.");
                 Console.WriteLine($"{CommandFireballHeroAttack} - take a fireball.");
