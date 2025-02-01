@@ -16,9 +16,9 @@ namespace homeWorkBossFigth
 
             Random random = new Random();
 
-            int maxHeroHealthLevel = 100;
+            int maxHeroHealth = 100;
             int maxHeroMana = 50;
-            int heroHealthLevel = maxHeroHealthLevel;
+            int heroHealth = maxHeroHealth;
             int heroMana = maxHeroMana;
             int meleeHeroAttack = random.Next(minValue, maxValue);
             int fireballHeroAttack = 40;
@@ -33,11 +33,11 @@ namespace homeWorkBossFigth
             Console.WriteLine("Let's battle began!");
             Console.ReadKey();
 
-            while (heroHealthLevel > 0 && bossHealthLevel > 0)
+            while (heroHealth > 0 && bossHealthLevel > 0)
             {
                 Console.Clear();
                 Console.WriteLine($"\nBoss health lvl = {bossHealthLevel}");
-                Console.WriteLine($"Hero health lvl = {heroHealthLevel}");
+                Console.WriteLine($"Hero health lvl = {heroHealth}");
                 Console.WriteLine($"Hero mana lvl = {heroMana}");
                 Console.WriteLine("\nMake your choice attack hero:");
                 Console.WriteLine($"{CommandMeleeHeroAttack} - take melee attack.");
@@ -50,7 +50,7 @@ namespace homeWorkBossFigth
                     case CommandMeleeHeroAttack:
                         Console.WriteLine("You choose melle attack;");
                         bossHealthLevel -= meleeHeroAttack;
-                        heroHealthLevel -= bossAttack;
+                        heroHealth -= bossAttack;
                         break;
 
                     case CommandFireballHeroAttack:
@@ -61,13 +61,13 @@ namespace homeWorkBossFigth
                             fireballCount = 1;
                             heroMana -= fireballCostMana;
                             bossHealthLevel -= fireballHeroAttack;
-                            heroHealthLevel -= bossAttack;
+                            heroHealth -= bossAttack;
                         }
                         else
                         {
                             Console.WriteLine("You mana level is low. Use healing spell now! " +
                                 "And you take damage!");
-                            heroHealthLevel -= bossAttack;
+                            heroHealth -= bossAttack;
                         }
                         break;
 
@@ -78,13 +78,13 @@ namespace homeWorkBossFigth
                         {
                             fireballCount = 0;
                             bossHealthLevel -= heroExplosionAttack;
-                            heroHealthLevel -= bossAttack;
+                            heroHealth -= bossAttack;
                         }
                         else
                         {
                             Console.WriteLine("Use the fireball first.Dont forget!" +
                                 " And you take damage!");
-                            heroHealthLevel -= bossAttack;
+                            heroHealth -= bossAttack;
                         }
                         break;
 
@@ -94,26 +94,26 @@ namespace homeWorkBossFigth
                         if (healingSpellUseCount > 0)
                         {
                             healingSpellUseCount--;
-                            heroHealthLevel = maxHeroHealthLevel;
+                            heroHealth = maxHeroHealth;
                             heroMana = maxHeroMana;
-                            heroHealthLevel -= bossAttack;
+                            heroHealth -= bossAttack;
                         }
                         else
                         {
                             Console.WriteLine("you're out of healing spells! And you take damage!");
-                            heroHealthLevel -= bossAttack;
+                            heroHealth -= bossAttack;
                         }
                         break;
 
                     default:
                         Console.WriteLine("Ufff -_- oh, you're wrong. And you take damage!");
-                        heroHealthLevel -= bossAttack;
+                        heroHealth -= bossAttack;
                         break;
                 }
                 Console.ReadKey();
             }
 
-            if (bossHealthLevel <= 0 && heroHealthLevel <= 0)
+            if (bossHealthLevel <= 0 && heroHealth <= 0)
             {
                 Console.WriteLine("So is it DRAW -_-");
             }
@@ -121,7 +121,7 @@ namespace homeWorkBossFigth
             {
                 Console.WriteLine("You WIN!!! Congratulation winner winner chicken dinner :)");
             }
-            else if (heroHealthLevel <= 0)
+            else if (heroHealth <= 0)
             {
                 Console.WriteLine("You lose. Game Over :(");
             }
