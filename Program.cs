@@ -27,8 +27,7 @@ namespace homeWorkBossFigth
             int heroExplosionAttack = 80;
             int healingSpellUseCount = 2;
             int bossHealthLevel = 200;
-            int bossAttack = random.Next(minValue, maxValue); ;
-            string userCommand = string.Empty;
+            int bossAttack = random.Next(minValue, maxValue);            
 
             Console.WriteLine("Welcome hero are you redy to figth?");
             Console.WriteLine("Let's battle began!");
